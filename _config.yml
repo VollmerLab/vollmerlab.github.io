@@ -1,3 +1,6 @@
+# jekyll configuration
 theme: jekyll-theme-slate
 title: "The Vollmer Lab"
 description: "We study the evolution and ecology of marine organisms"
+url: "https://vollmerlab.github.io"
+highlighter: rouge
