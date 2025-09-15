@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - The Vollmer Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #0066cc;
+        }
+
+        /* Page header */
+        .page-header {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 2rem;
+            border-bottom: 1px solid #f0f0f0;
+            text-align: left;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Content sections */
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        .year-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .year-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .publication {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .publication-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .publication-authors {
+            color: #666;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .publication-authors .highlight {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .publication-journal {
+            color: #0066cc;
+            font-style: italic;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .publication-summary {
+            color: #555;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .publication-links {
+            margin-top: 0.3rem;
+        }
+
+        .publication-links a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-right: 1rem;
+        }
+
+        .publication-links a:hover {
+            text-decoration: underline;
+        }
+
+        .stats {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0066cc;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .page-header {
+                padding: 2rem 1rem 1.5rem;
+            }
+
+            .section {
+                padding: 1.5rem 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">The Vollmer Lab</a>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html" class="active">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Publications</h1>
+        <p>Research publications from the Vollmer Lab</p>
+    </header>
+
+    <div class="section">
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">3,811</span>
+                    <div class="stat-label">Total Citations</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50</span>
+                    <div class="stat-label">Peer-reviewed Publications</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Science</span>
+                    <div class="stat-label">Recent High-impact Publication</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="https://scholar.google.com/citations?user=ww1DGUEAAAAJ&hl=en" style="color: #0066cc; text-decoration: none; font-weight: 500;">View Google Scholar Profile →</a>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2025</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">A Network Approach to White Band Disease Challenged Staghorn Coral Acropora cervicornis microRNAs and Their Targets</h3>
+                <p class="publication-authors">Despard, B.A., Selwyn, J.D., Shupp, A.N. and <span class="highlight">Vollmer, S.V.</span></p>
+                <p class="publication-journal">Ecology and Evolution, 15: e71351 (2025)</p>
+                <p class="publication-summary">
+                    Used network analysis to identify microRNA-target interactions in disease-challenged staghorn corals, revealing post-transcriptional gene regulation mechanisms during white band disease infection. This work advances understanding of epigenetic factors in coral disease resistance.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1002/ece3.71351">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Antibiotic pretreatment inhibits white band disease infection by suppressing the bacterial pathobiome</h3>
+                <p class="publication-authors">Selwyn, J. D., Despard, B. A., Galvan-Dubois, K. A., Trytten, E. C., & <span class="highlight">Vollmer, S. V.</span></p>
+                <p class="publication-journal">Frontiers in Marine Science, 12, 1491476 (2025)</p>
+                <p class="publication-summary">
+                    Demonstrated that prophylactic antibiotic treatment reduces white band disease infection rates by 30 percentage points by suppressing Vibrio species and other opportunistic pathogens in coral microbiomes. Provides insights into disease prevention strategies for coral restoration.
+                </p>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2024</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Machine learning based identification of putative coral pathogens in endangered Caribbean staghorn coral</h3>
+                <p class="publication-authors">Selwyn, JD, Despard, BA, Vollmer, MV, Trytten EC, <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Environmental Microbiology 26 (9) e16700 (2024)</p>
+                <p class="publication-summary">
+                    Applied machine learning approaches to identify potential coral pathogens from microbiome data, advancing understanding of white band disease etiology in endangered Caribbean staghorn corals. Demonstrates the power of computational approaches in coral disease research.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/1462-2920.16700">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2023</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Genomic signatures of disease resistance in endangered staghorn corals</h3>
+                <p class="publication-authors"><span class="highlight">Vollmer, S. V.</span>, Selwyn, J. D., Despard, B. A., & Roesel, C. L.</p>
+                <p class="publication-journal">Science, 381(6665), 1451-1454 (2023)</p>
+                <p class="publication-summary">
+                    Breakthrough genome-wide association study identifying 10 genomic regions and 73 SNPs associated with white band disease resistance. Shows that polygenic scores can accurately predict disease resistance in Caribbean staghorn corals, providing critical tools for coral restoration efforts.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1126/science.adi3601">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Whole genome assembly and annotation of the endangered Caribbean coral Acropora cervicornis</h3>
+                <p class="publication-authors">Selwyn, J. D., & <span class="highlight">Vollmer, S. V.</span></p>
+                <p class="publication-journal">G3 Genes|Genomes|Genetics, Volume 13, Issue 12, jkad232 (2023)</p>
+                <p class="publication-summary">
+                    Assembled and annotated the first high-quality reference genome for endangered staghorn coral, providing a crucial genomic resource that enables population genomics and conservation research for this critically endangered species.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1093/g3journal/jkad232">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Environmental and geographical factors structure cauliflower coral's algal symbioses across the Indo‐Pacific</h3>
+                <p class="publication-authors">Glynn, V. M., <span class="highlight">Vollmer, S. V.</span>, Kline, D. I., & Barrett, R. D.</p>
+                <p class="publication-journal">Journal of Biogeography, 50(4), 669-684 (2023)</p>
+                <p class="publication-summary">
+                    Comprehensive analysis of how environmental and geographical factors influence coral-algal symbioses across the Indo-Pacific, revealing patterns of symbiont community structure in cauliflower corals and their adaptive significance.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/jbi.14560">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2021</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Multi-variate analyses of coral mortality from the 2014–2015 stony coral tissue loss disease outbreak off Miami-Dade County, Florida</h3>
+                <p class="publication-authors">Spadafore, R, Fura, R, Precht, WF, & <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Frontiers in Marine Science. 8:723998 (2021)</p>
+                <p class="publication-summary">
+                    Comprehensive multi-variate analysis of coral mortality patterns during the devastating 2014-2015 stony coral tissue loss disease outbreak in South Florida, providing insights into disease spread patterns and species susceptibility.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.3389/fmars.2021.723998">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Host-microbial systems as glass cannons: Explaining microbiome stability in corals exposed to extrinsic perturbations</h3>
+                <p class="publication-authors">Dunphy CM, <span class="highlight">Vollmer SV</span>, Gouhier TC</p>
+                <p class="publication-journal">Journal of Animal Ecology 90(5):1044-1057 (2021)</p>
+                <p class="publication-summary">
+                    Theoretical framework explaining coral microbiome stability under environmental stress, introducing the "glass cannon" concept where corals maintain stable microbiomes until critical thresholds are exceeded, leading to rapid community shifts.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/1365-2656.13466">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2020</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">U-Th dating of Holocene age Acropora prolifera (Lamarck, 1816) colonies confirms coral hybridization is not a recent phenomenon</h3>
+                <p class="publication-authors">Modys, AB; Mortlock, RA; <span class="highlight">Vollmer, SV</span>; Kaufman, L; Precht WR</p>
+                <p class="publication-journal">Proceedings of the Biological Society of Washington 133 (1): 72–75 (2020)</p>
+                <p class="publication-summary">
+                    Used uranium-thorium dating to demonstrate that coral hybridization between Acropora species has been occurring for thousands of years, not just recently due to climate stress, providing evolutionary context for current hybridization patterns.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.2988/20-00002">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Transcriptomics reveals specific molecular mechanisms underlying transgenerational immunity in Manduca sexta</h3>
+                <p class="publication-authors">Roesel, CL, Rosengaus, RB, Smith, W; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Ecology and Evolution 10, 11251–11261 (2020)</p>
+                <p class="publication-summary">
+                    Transcriptomic analysis revealing molecular mechanisms of transgenerational immunity in tobacco hornworm moths, demonstrating how immune priming can be passed from parents to offspring through epigenetic modifications.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1002/ece3.6764">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2019</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Differential gene expression analysis of symbiotic and aposymbiotic Exaiptasia anemones under immune challenge with Vibrio coralliilyticus</h3>
+                <p class="publication-authors">Roesel, CL; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Ecology and Evolution 9 (14), 8279-8293 (2019)</p>
+                <p class="publication-summary">
+                    Comparative transcriptomic analysis of symbiotic versus aposymbiotic sea anemones under bacterial challenge, revealing how algal symbionts influence host immune responses and providing insights into coral-algae-bacteria interactions.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1002/ece3.5403">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Structure and stability of the coral microbiome in space and time</h3>
+                <p class="publication-authors">Dunphy, CM; Gouhier, TC; Chu, ND; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Scientific Reports 9 (1) 6785 (2019)</p>
+                <p class="publication-summary">
+                    Large-scale analysis of coral microbiome structure and stability across spatial and temporal scales, revealing fundamental principles governing coral-microbial community dynamics and their implications for coral health and resilience.
+                </p>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Fossil Acropora prolifera (Lamarck, 1816) reveals coral hybridization in not only a recent phenomenon</h3>
+                <p class="publication-authors">Precht, WF; <span class="highlight">Vollmer, SV</span>; Modys, AB, Kaufman, L</p>
+                <p class="publication-journal">Proceedings of the Biological Society of Washington 132: 40 – 55 (2019)</p>
+                <p class="publication-summary">
+                    Paleontological evidence demonstrating that coral hybridization between Acropora species has been occurring throughout the Holocene, providing evolutionary context for understanding modern coral hybridization patterns and reef dynamics.
+                </p>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2018</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Inhibiting bacterial quorum sensing arrests coral disease development and disease-associated microbes</h3>
+                <p class="publication-authors">Certner, RH and <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Environmental Microbiology, 20(2), 645–657 (2018)</p>
+                <p class="publication-summary">
+                    Demonstrated that inhibiting bacterial quorum sensing can arrest coral disease development and reduce disease-associated microbes, revealing quorum sensing as a key mechanism in coral disease progression and a potential target for disease control.
+                </p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/1462-2920.13991">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2017</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Zooplankton as a potential vector for white band disease transmission in the endangered coral, Acropora cervicornis</h3>
+                <p class="publication-authors">Certner, RM; Dwyer, AM; Patterson, MR; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">PeerJ 5, e3502 (2017)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.7717/peerj.3502">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Complex interactions between potentially pathogenic, opportunistic, and resident bacteria emerge during infection on a reef-building coral</h3>
+                <p class="publication-authors">Gignoux-Wolfsohn, SA; Aronson, FM; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">FEMS Microbiology Ecology 93 (7) (2017)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1093/femsec/fix080">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Ecological rescue of host-microbial systems under environmental change</h3>
+                <p class="publication-authors">Pillai, P; Gouhier, TC; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Theoretical Ecology 10 (1), 51-63 (2017)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1007/s12080-016-0310-3">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2016</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Caribbean corals house shared and host-specific microbial symbionts over time and space</h3>
+                <p class="publication-authors">Chu, ND; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Environmental Microbiology Reports. 8 (4) 493 – 500 (2016)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/1758-2229.12412">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Genetic Signature of Resistance to White Band Disease in the Caribbean Staghorn Coral Acropora cervicornis</h3>
+                <p class="publication-authors">Libro, S; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">PLoS one 11 (1), e0146636 (2016)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1371/journal.pone.0146636">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">De novo transcriptome assembly for the lobster Homarus americanus and characterization of differential gene expression across nervous system tissues</h3>
+                <p class="publication-authors">McGrath, LL; <span class="highlight">Vollmer, SV</span>; Kaluziak, ST; Ayers, J</p>
+                <p class="publication-journal">BMC Genomics 17 (1), 1- 16 (2016)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1186/s12864-016-2373-3">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2015</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Diurnal and nocturnal transcriptomic variation in the Caribbean staghorn coral, Acropora cervicornis</h3>
+                <p class="publication-authors">Hemond, EM; <span class="highlight">Vollmer SV</span></p>
+                <p class="publication-journal">Molecular ecology 24 (17), 4460-4473 (2015)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/mec.13320">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Identification of Candidate Coral Pathogens on White Band Disease-Infected Staghorn Coral</h3>
+                <p class="publication-authors">Gignoux-Wolfsohn, SA; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">PloS one 10 (8), e0134416 (2015)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1371/journal.pone.0134416">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Trans-Pacific RAD-Seq population genomics confirms introgressive hybridization in Eastern Pacific Pocillopora corals</h3>
+                <p class="publication-authors">Combosch, DJ; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Molecular Phylogenetics and Evolution 88, 154-162 (2015)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1016/j.ympev.2015.03.022">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Evidence for Autoinduction and Quorum Sensing in White Band Disease-Causing Microbes on Acropora cervicornis</h3>
+                <p class="publication-authors">Certner, RH; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Scientific reports 5(1), 11134 (2015)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1038/srep11134">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2014</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">The genetics of colony form and function in Caribbean Acropora corals</h3>
+                <p class="publication-authors">Hemond, EM; Kaluziak, ST; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">BMC genomics 15 (1), 1133 (2014)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1186/1471-2164-15-1133">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Thermal stress and predation risk trigger distinct transcriptomic responses in the intertidal snail Nucella lapillus</h3>
+                <p class="publication-authors">Chu, N; Miller, L; Kaluziak, S; Trussell, G; <span class="highlight">Vollmer, S.</span></p>
+                <p class="publication-journal">Molecular Ecology 23 (24), 6104-6113 (2014)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/mec.12994">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">The cryptic role of biodiversity in the emergence of host-microbial mutualisms</h3>
+                <p class="publication-authors">Pillai, P; <span class="highlight">Vollmer, S</span>; Gouhier, T</p>
+                <p class="publication-journal">Ecology Letters, 17 (11), 1437–1446 (2014)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/ele.12349">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Phylogenomic analyses reveal latitudinal population structure and polymorphisms in heat stress genes in the North Atlantic snail Nucella lapillus</h3>
+                <p class="publication-authors">Chu, N; Kaluziak, S; Trussell, G; <span class="highlight">Vollmer, S.</span></p>
+                <p class="publication-journal">Molecular Ecology 23 (7): 1863 - 1873 (2014)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/mec.12681">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Transcriptome analyses and differential gene expression in a non-model fish species with alternative mating tactics</h3>
+                <p class="publication-authors">Schunter, CM; <span class="highlight">Vollmer, SV</span>; Macpherson, E; Pascual, M.</p>
+                <p class="publication-journal">BMC Genomics, 15 (1), 167 (2014)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1186/1471-2164-15-167">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2013</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">RNA-seq profiles of Immune Related Genes in the Staghorn Coral Acropora cervicornis infected with White Band Disease</h3>
+                <p class="publication-authors">Libro, S; Kaluziak, S; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">PLoS ONE, 8(11), e81821 (2013)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1371/journal.pone.0081821">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Understanding the coral holobiont through science and SCUBA</h3>
+                <p class="publication-authors"><span class="highlight">Vollmer, SV</span>; Baker, A; Coffroth, MAC; Harvell; CD, Medina.</p>
+                <p class="publication-journal">Smithsonian Contributions to Marine Science 39: 173-186 (2013)</p>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Mixed asexual and sexual reproduction in the Indo‐Pacific reef coral Pocillopora damicornis</h3>
+                <p class="publication-authors">Combosch, D J; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Ecology and Evolution, 3(10), 3379–3387 (2013)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1002/ece3.721">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2012</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">White Band Disease transmission in the threatened coral, Acropora cervicornis</h3>
+                <p class="publication-authors">Gignoux-Wolfsohn, S; Marks, C; <span class="highlight">Vollmer, SV.</span></p>
+                <p class="publication-journal">Scientific Reports 2: 804 (2012)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1038/srep00804">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">ENSO drives 2,600-year collapse of eastern Pacific coral reefs</h3>
+                <p class="publication-authors">Toth, LT; Aronson, RB; <span class="highlight">Vollmer, SV</span>; Hobbs, JW; Urrego, DH; Cheng, H; Bush, MB; Enochs, IC, Combosch, DJ, van Woesik, R; Macintyre, IG.</p>
+                <p class="publication-journal">Science 337 (6090): 81-84 (2012)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1126/science.1221168">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Weak Prezygotic Isolating Mechanisms in Threatened Caribbean Acropora Corals</h3>
+                <p class="publication-authors">Fogarty, NK; <span class="highlight">Vollmer, SV</span>; Levitan, DR.</p>
+                <p class="publication-journal">PLoS One 7(2):e30486 (2012)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1371/journal.pone.0030486">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2011</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">The role of genes in understanding the evolutionary ecology of reef building corals</h3>
+                <p class="publication-authors">Palumbi, SR; <span class="highlight">Vollmer SV</span>; Romano, S; Oliver, T; Lander, J</p>
+                <p class="publication-journal">Evolutionary Ecology. 26: 317 – 335 (2011)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1007/s10682-011-9517-3">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Population genetics of an ecosystem-defining reef coral – Pocillopora damicornis in the Tropical Eastern Pacific</h3>
+                <p class="publication-authors">Combosch, DJ; <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">PLoS One 6(8): e21200 (2011)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1371/journal.pone.0021200">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">White Band Disease (type I) of endangered Caribbean acroporid corals is caused by pathogenic bacteria</h3>
+                <p class="publication-authors">Kline, D, and <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Scientific Reports 1, 7 (2011)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1038/srep00007">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Phylogeographic analysis reveals a deep lineage split within North Atlantic Littorina saxatilis</h3>
+                <p class="publication-authors">Doellman, MM, Trussell, GC, Grahame, JW, and <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">Proceedings of the Royal Society B: Biological Sciences, 278(1722), 3175–3183 (2011)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1098/rspb.2011.0346">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2010</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Limited gene flow in the brooding coral Favia Fragum (Esper, 1797)</h3>
+                <p class="publication-authors">Goodbody-Gringley, G, <span class="highlight">Vollmer, SV</span>, Woollacott, RM, and Giribet, G.</p>
+                <p class="publication-journal">Marine Biology. 157: 2591-2602 (2010)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1007/s00227-010-1521-6">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Genetic diversity and connectivity in the threatened staghorn coral (Acropora cervicornis) in Florida</h3>
+                <p class="publication-authors">Hemond, EM and <span class="highlight">Vollmer, SV</span></p>
+                <p class="publication-journal">PloS One, 5(1), e8652 (2010)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1371/journal.pone.0008652">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2008</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Natural disease resistance in threatened reef corals</h3>
+                <p class="publication-authors"><span class="highlight">Vollmer, SV</span> and Kline, D.</p>
+                <p class="publication-journal">PLoS One 3(11) e3718 (2008)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1371/journal.pone.0003718">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Interspecific hybridization and restricted Transpacific gene flow in the tropical eastern Pacific Pocillopora</h3>
+                <p class="publication-authors">Combosch, D.J, Guzmán, HM, Schuhmacher, H and <span class="highlight">Vollmer, SV.</span></p>
+                <p class="publication-journal">Molecular Ecology 17: 1304-1312 (2008)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/j.1365-294x.2007.03672.x">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Re-evaluation of the systematics of the endemic corals of Brazil by molecular data</h3>
+                <p class="publication-authors">Nunes, F, Fukami, H, <span class="highlight">Vollmer, SV</span>, Knowlton, N and Norris, RD.</p>
+                <p class="publication-journal">Coral Reefs. 27: 423-432 (2008)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1007/s00338-007-0349-0">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2007</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Restricted gene flow in the Caribbean Staghorn coral Acropora cervicornis: implications for the recovery of endangered reefs</h3>
+                <p class="publication-authors"><span class="highlight">Vollmer, SV</span> and Palumbi, SR.</p>
+                <p class="publication-journal">Journal of Heredity 98:40-50 (2007)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1093/jhered/esl057">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2006</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">The role of hybridization in the evolution of reef corals</h3>
+                <p class="publication-authors">Willis, BL, van Oppen, MJH, Miller, DJ, <span class="highlight">Vollmer, SV</span> and Ayre, DJ.</p>
+                <p class="publication-journal">Annual Review of Ecology, Evolution, and Systematics 37:489–517 (2006)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1146/annurev.ecolsys.37.091305.110136">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2004</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Testing the utility of ITS sequences in coral phylogenetics</h3>
+                <p class="publication-authors"><span class="highlight">Vollmer, SV</span> and Palumbi, SR</p>
+                <p class="publication-journal">Molecular Ecology 13:2763–2772 (2004)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1111/j.1365-294X.2004.02265.x">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2002</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Hybridization and the evolution of reef coral diversity</h3>
+                <p class="publication-authors"><span class="highlight">Vollmer, SV</span> and Palumbi, SR.</p>
+                <p class="publication-journal">Science 296:2023–2025 (2002)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1126/science.1069524">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <h3 class="publication-title">Unisexual clones: lizards and corals</h3>
+                <p class="publication-authors"><span class="highlight">Vollmer, SV</span> and Palumbi, SR.</p>
+                <p class="publication-journal">Science 298:2130–2131 (2002)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1126/science.298.5601.2130">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <h2 class="year-title">2000</h2>
+
+            <div class="publication">
+                <h3 class="publication-title">Allometric scaling in small colonies of the scleractinian coral Siderastrea siderea (Ellis and Solander)</h3>
+                <p class="publication-authors"><span class="highlight">Vollmer, SV</span> and Edmunds, PJ.</p>
+                <p class="publication-journal">Biological Bulletin 199:21–28 (2000)</p>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.2307/1542703">DOI</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; text-align: center;">
+            <p style="color: #666; font-size: 0.9rem;">
+                For the most up-to-date publication list and citation metrics, visit 
+                <a href="https://scholar.google.com/citations?user=ww1DGUEAAAAJ&hl=en" style="color: #0066cc;">Google Scholar</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
