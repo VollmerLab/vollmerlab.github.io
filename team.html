@@ -1,436 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team - The Vollmer Lab</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
-
-        /* Navigation */
-        nav {
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #333;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #666;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: #0066cc;
-        }
-
-        /* Page header with background banner */
-        .page-header {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2.5rem 2rem 2rem;
-            border-bottom: 1px solid #f0f0f0;
-            text-align: left;
-            background-image: url('coral-reef-banner.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            min-height: 200px;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 0;
-        }
-
-        .page-header-content {
-            position: relative;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
-        }
-
-        .page-header h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .page-header p {
-            color: #666;
-            font-size: 1rem;
-        }
-
-        /* Content sections */
-        .section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 2rem;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        /* Team member styling */
-        .team-member {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        .team-member:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .member-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.3rem;
-        }
-
-        .member-education {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .member-description {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Headshot styling */
-        .headshot {
-            width: 120px;
-            height: 120px;
-            background: #f8f9fa;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 0.8rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .headshot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-
-        .member-with-photo {
-            display: grid;
-            grid-template-columns: 140px 1fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
-
-        .member-info {
-            flex: 1;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 1rem;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .page-header {
-                padding: 2rem 1rem 1.5rem;
-            }
-
-            .section {
-                padding: 1.5rem 1rem;
-            }
-
-            .member-with-photo {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .headshot {
-                margin: 0 auto 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team — The Vollmer Lab</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">The Vollmer Lab</a>
-            <ul class="nav-links">
-                <li><a href="index.html">About</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="team.html" class="active">Team</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <header class="page-header">
-        <div class="page-header-content">
-            <h1>Team</h1>
-            <p>Current and former members of the Vollmer Lab</p>
-        </div>
-    </header>
+  <nav class="site-nav hero-nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">The Vollmer Lab</a>
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Principal Investigator -->
-    <section class="section">
-        <h2 class="section-title">Principal Investigator</h2>
-        <div class="team-member member-with-photo">
-            <div class="headshot">
-                <img src="steve-vollmer.jpg" alt="Dr. Steve Vollmer" style="display: none;" onload="this.style.display='block'; this.parentElement.innerHTML=this.outerHTML;">
-                <div>Dr. Steve Vollmer<br>Headshot</div>
+  <!-- HERO — PHOTO PLACEHOLDER: Replace gradient with a team/field photo -->
+  <section class="hero hero-sm">
+    <div class="hero-content">
+      <p class="hero-tag">The Vollmer Lab</p>
+      <h1>Team</h1>
+      <p class="hero-sub">Current members and alumni of the Vollmer Lab at FAU.</p>
+    </div>
+  </section>
+
+  <!-- PRINCIPAL INVESTIGATOR -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Principal Investigator</p>
+
+      <div class="pi-card">
+        <div class="team-card-photo">
+          <img src="steve-vollmer.jpg" alt="Dr. Steve Vollmer">
+        </div>
+        <div class="team-card-body">
+          <p class="team-card-role">Principal Investigator</p>
+          <h3 class="team-card-name">Dr. Steve Vollmer</h3>
+          <p class="team-card-edu">PhD, Harvard University</p>
+          <p class="team-card-bio">
+            Evolutionary biologist specializing in the genomics of non-model marine organisms. Research focuses on coral disease resistance, immunology, and coral-pathogen interactions at the molecular and organismal level. Uses field and tank experiments combined with genomics to unravel complex interactions between the coral animal host, its algal symbionts, and numerous microbes.
+          </p>
+          <p class="team-card-bio" style="margin-bottom: 1.25rem;">
+            Director, School of Environmental, Coastal, and Ocean Sustainability &amp; Professor, Department of Biological Sciences, Florida Atlantic University.
+          </p>
+          <div class="member-links">
+            <a href="https://scholar.google.com/citations?user=ww1DGUEAAAAJ&hl=en" class="link-badge scholar" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://github.com/svvollmer" class="link-badge github" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/steve-v-vollmer/" class="link-badge linkedin" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CURRENT GRADUATE STUDENTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-label">Current Graduate Students</p>
+      <h2 class="section-title">PhD Students</h2>
+
+      <div class="team-grid">
+
+        <div class="team-card">
+          <div class="team-card-photo">
+            <img src="emily-trytten.jpg" alt="Emily Trytten">
+          </div>
+          <div class="team-card-body">
+            <p class="team-card-role">PhD Student</p>
+            <h3 class="team-card-name">Emily Trytten</h3>
+            <p class="team-card-edu">BS, University of California, San Diego · Northeastern University</p>
+            <p class="team-card-bio">Identifying coral pathogens and mutualists using coral-microbial filtration, manipulation, and metagenomic techniques. Joined 2022.</p>
+            <div class="member-links">
+              <!-- LINK PLACEHOLDER: Add Emily's Google Scholar URL -->
+              <!-- <a href="" class="link-badge scholar" target="_blank" rel="noopener">Google Scholar</a> -->
+              <!-- LINK PLACEHOLDER: Add Emily's LinkedIn URL -->
+              <!-- <a href="" class="link-badge linkedin" target="_blank" rel="noopener">LinkedIn</a> -->
             </div>
-            <div class="member-info">
-                <h3 class="member-name">Dr. Steve Vollmer</h3>
-                <p class="member-education">PhD, Harvard University</p>
-                <p class="member-description">
-                    Evolutionary biologist specializing in the genomics of non-model, marine organisms. Research focuses on coral disease resistance, immunology, and coral-pathogen interactions at the molecular and organismal level. Uses field and tank experiments combined with genomics to unravel the complex interactions between the coral animal host, its algal symbionts and numerous microbes.<br><br>
-                    <strong>Current Position:</strong> Director, School of Environmental, Coastal, and Ocean Sustainability & Professor, Department of Biological Sciences, Florida Atlantic University<br><br>
-                    <strong>Links:</strong> <a href="https://scholar.google.com/citations?user=ww1DGUEAAAAJ&hl=en" style="color: #0066cc;">Google Scholar</a> | <a href="https://github.com/svvollmer" style="color: #0066cc;">GitHub</a>
-                </p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-photo">
+            <!-- PHOTO PLACEHOLDER: Add kai-galvan-dubois.jpg -->
+            <div class="team-card-photo-placeholder">Photo coming soon</div>
+          </div>
+          <div class="team-card-body">
+            <p class="team-card-role">PhD Student</p>
+            <h3 class="team-card-name">Kai Galvan-Dubois</h3>
+            <p class="team-card-edu">BS, Cornell University · Northeastern University</p>
+            <p class="team-card-bio">Characterizing the pathogens associated with Stony Coral Tissue Loss Disease. Joined 2023.</p>
+            <div class="member-links">
+              <!-- LINK PLACEHOLDER: Add Kai's Google Scholar URL -->
+              <!-- <a href="" class="link-badge scholar" target="_blank" rel="noopener">Google Scholar</a> -->
+              <!-- LINK PLACEHOLDER: Add Kai's LinkedIn URL -->
+              <!-- <a href="" class="link-badge linkedin" target="_blank" rel="noopener">LinkedIn</a> -->
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Current Graduate Students -->
-    <section class="section">
-        <h2 class="section-title">Current Graduate Students</h2>
-        
-        <div class="team-member member-with-photo">
-            <div class="headshot">
-                <img src="emily-trytten.jpg" alt="Emily Trytten" style="display: none;" onload="this.style.display='block'; this.parentElement.innerHTML=this.outerHTML;">
-                <div>Emily Trytten<br>Headshot</div>
+        <div class="team-card">
+          <div class="team-card-photo">
+            <img src="jen-polinski.jpg" alt="Jen Polinski">
+          </div>
+          <div class="team-card-body">
+            <p class="team-card-role">PhD Student</p>
+            <h3 class="team-card-name">Jen Polinski</h3>
+            <p class="team-card-edu">MS, Florida Atlantic University · Northeastern University &amp; Gloucester Marine Genomics Institute</p>
+            <p class="team-card-bio">Researching the genomics of coral thermal tolerance, speciation, and hybridization.</p>
+            <div class="member-links">
+              <!-- LINK PLACEHOLDER: Add Jen's Google Scholar URL -->
+              <!-- <a href="" class="link-badge scholar" target="_blank" rel="noopener">Google Scholar</a> -->
+              <!-- LINK PLACEHOLDER: Add Jen's LinkedIn URL -->
+              <!-- <a href="" class="link-badge linkedin" target="_blank" rel="noopener">LinkedIn</a> -->
             </div>
-            <div class="member-info">
-                <h3 class="member-name">Emily Trytten</h3>
-                <p class="member-education">BS, University of California, San Diego</p>
-                <p class="member-description">
-                    Research focuses on identifying coral pathogens and mutualists using coral-microbial filtration, manipulation and metagenomic techniques. Joined the Vollmer lab as a PhD student in 2022.<br>
-                    @ Northeastern University
-                </p>
-            </div>
+          </div>
         </div>
 
-        <div class="team-member member-with-photo">
-            <div class="headshot">
-                <img src="kai-galvan-dubois.jpg" alt="Kai Galvan-Dubois" style="display: none;" onload="this.style.display='block'; this.parentElement.innerHTML=this.outerHTML;">
-                <div>Kai Galvan-Dubois<br>Headshot</div>
-            </div>
-            <div class="member-info">
-                <h3 class="member-name">Kai Galvan-Dubois</h3>
-                <p class="member-education">BS, Cornell University</p>
-                <p class="member-description">
-                    Research focuses on characterizing the pathogens associated with Stony Coral Tissue Loss Disease. Joined the Vollmer lab as a PhD student in 2023.<br>
-                    @ Northeastern University
-                </p>
-            </div>
-        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="team-member member-with-photo">
-            <div class="headshot">
-                <img src="jen-polinski.jpg" alt="Jen Polinski" style="display: none;" onload="this.style.display='block'; this.parentElement.innerHTML=this.outerHTML;">
-                <div>Jen Polinski<br>Headshot</div>
-            </div>
-            <div class="member-info">
-                <h3 class="member-name">Jen Polinski</h3>
-                <p class="member-education">MS, Florida Atlantic University</p>
-                <p class="member-description">
-                    Researches the genomics of coral thermal tolerance, speciation and hybridization.<br>
-                    @ Northeastern University AND @ Gloucester Marine Genomics Institute
-                </p>
-            </div>
-        </div>
-    </section>
+  <!-- RECENT ALUMNI -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Alumni</p>
+      <h2 class="section-title">Recent Alumni</h2>
 
-    <!-- Recent Alumni -->
-    <section class="section">
-        <h2 class="section-title">Recent Alumni</h2>
-        
-        <div class="team-member">
-            <h3 class="member-name">Dr. Jason Selwyn</h3>
-            <p class="member-education">PhD, Texas A&M Corpus Christi</p>
-            <p class="member-description">
-                Former NSF Postdoctoral Researcher. Computational biologist and statistician whose research focused on the genomic signatures of coral disease resistance and statistical analyses of genomic and ecological data.<br><br>
-                <strong>Links:</strong> <a href="https://scholar.google.com/citations?user=3LC4ntQAAAAJ&hl=en" style="color: #0066cc;">Google Scholar</a> | <a href="https://github.com/jdselwyn" style="color: #0066cc;">GitHub</a>
-            </p>
-        </div>
+      <ul class="alumni-list">
 
-        <div class="team-member">
-            <h3 class="member-name">Dr. Brecia Despard (2020 – 2025)</h3>
-            <p class="member-education">PhD, Northeastern University</p>
-            <p class="member-description">
-                <strong>Thesis:</strong> "Characterization of small RNAs, miRNA targets, miRNA-mediated gene silencing pathways and their interaction with White Band Disease resistance in Staghorn coral <em>Acropora cervicornis</em>"<br><br>
-                <strong>Links:</strong> <a href="https://scholar.google.com/citations?user=zFslNvEAAAAJ&hl=en" style="color: #0066cc;">Google Scholar</a>
-            </p>
-        </div>
-    </section>
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. Jason Selwyn</p>
+            <p class="alumni-detail">NSF Postdoctoral Researcher · PhD, Texas A&amp;M Corpus Christi<br>
+            Computational biologist focused on genomic signatures of coral disease resistance.</p>
+          </div>
+          <div class="alumni-links">
+            <a href="https://scholar.google.com/citations?user=3LC4ntQAAAAJ&hl=en" class="link-badge scholar" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://github.com/jdselwyn" class="link-badge github" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </li>
 
-    <!-- Former PhD Students -->
-    <section class="section">
-        <h2 class="section-title">Former PhD Students</h2>
-        
-        <div class="team-member">
-            <h3 class="member-name">Dr. David Combosch (2007 - 2014)</h3>
-            <p class="member-education">PhD, Northeastern University</p>
-            <p class="member-description">
-                <strong>Thesis:</strong> "Evolution in isolation - the genetic basis of the Tropical Eastern Pacific's ecologically dominant reef builder <em>Pocillopora damicornis</em>"<br>
-                <strong>Currently:</strong> Associate Professor, University of Guam (2016 - present)
-            </p>
-        </div>
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. Brecia Despard <span style="font-weight:400; color: var(--light);">2020–2025</span></p>
+            <p class="alumni-detail">PhD, Northeastern University<br>
+            Thesis: "Characterization of small RNAs, miRNA targets, miRNA-mediated gene silencing pathways and their interaction with White Band Disease resistance in <em>Acropora cervicornis</em>"</p>
+          </div>
+          <div class="alumni-links">
+            <a href="https://scholar.google.com/citations?user=zFslNvEAAAAJ&hl=en" class="link-badge scholar" target="_blank" rel="noopener">Google Scholar</a>
+          </div>
+        </li>
 
-        <div class="team-member">
-            <h3 class="member-name">Dr. Silvia Libro (2007 - 2014)</h3>
-            <p class="member-education">PhD, Northeastern University</p>
-            <p class="member-description">
-                <strong>Thesis:</strong> "Genetic bases of immunity and disease resistance to White Band Disease in the staghorn coral <em>Acropora cervicornis</em>"<br>
-                <strong>Currently:</strong> Laboratory Manager, Northeastern University (2019-present)
-            </p>
-        </div>
+      </ul>
+    </div>
+  </section>
 
-        <div class="team-member">
-            <h3 class="member-name">Dr. Elizabeth Hemond (2008 - 2014)</h3>
-            <p class="member-education">PhD, Northeastern University</p>
-            <p class="member-description">
-                <strong>Thesis:</strong> "The genetic architecture of Caribbean Acroporid corals"<br>
-                <strong>Currently:</strong> Assistant Professor, Behashir University, Istanbul, Turkey (2014 - present)
-            </p>
-        </div>
+  <!-- FORMER PHD STUDENTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Former PhD Students</h2>
 
-        <div class="team-member">
-            <h3 class="member-name">Dr. Sarah Gignoux-Wolfsohn (2011 - 2016)</h3>
-            <p class="member-education">PhD, Northeastern University</p>
-            <p class="member-description">
-                <strong>Thesis:</strong> "Towards A Better Understanding of White Band Disease: Transmission, Causes, and Effects"<br>
-                <strong>Currently:</strong> Assistant Professor, University of Massachusetts Lowell (2023 – present)
-            </p>
-        </div>
+      <ul class="alumni-list">
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. Stefan Kaluziak <span style="font-weight:400; color: var(--light);">2011–2020</span></p>
+            <p class="alumni-detail">Thesis: "A Genomics Perspective on the Evolution of Caribbean Acroporid Corals" · Currently: Research Scientist, Massachusetts General Hospital</p>
+          </div>
+        </li>
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. Charles Roesel <span style="font-weight:400; color: var(--light);">2013–2018</span></p>
+            <p class="alumni-detail">Thesis: "NGS Profiling of Invertebrate Immune Systems" · Currently: Senior Application Scientist, Dotmatics</p>
+          </div>
+        </li>
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. Rebecca Certner <span style="font-weight:400; color: var(--light);">2012–2017</span></p>
+            <p class="alumni-detail">Thesis: "Microbial Ecology and Genetic Mechanisms of Virulence and Pathogenicity in White Band Disease Infected Staghorn Corals" · Currently: Management and Program Analyst, NOAA</p>
+          </div>
+        </li>
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. Sarah Gignoux-Wolfsohn <span style="font-weight:400; color: var(--light);">2011–2016</span></p>
+            <p class="alumni-detail">Thesis: "Towards A Better Understanding of White Band Disease: Transmission, Causes, and Effects" · Currently: Assistant Professor, UMass Lowell</p>
+          </div>
+        </li>
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. Elizabeth Hemond <span style="font-weight:400; color: var(--light);">2008–2014</span></p>
+            <p class="alumni-detail">Thesis: "The genetic architecture of Caribbean Acroporid corals" · Currently: Assistant Professor, Beşiktaş University, Istanbul</p>
+          </div>
+        </li>
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. Silvia Libro <span style="font-weight:400; color: var(--light);">2007–2014</span></p>
+            <p class="alumni-detail">Thesis: "Genetic bases of immunity and disease resistance to White Band Disease in <em>Acropora cervicornis</em>" · Currently: Laboratory Manager, Northeastern University</p>
+          </div>
+        </li>
+        <li class="alumni-item">
+          <div>
+            <p class="alumni-name">Dr. David Combosch <span style="font-weight:400; color: var(--light);">2007–2014</span></p>
+            <p class="alumni-detail">Thesis: "Evolution in isolation — the genetic basis of <em>Pocillopora damicornis</em>" · Currently: Associate Professor, University of Guam</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-        <div class="team-member">
-            <h3 class="member-name">Dr. Rebecca Certner (2012 - 2017)</h3>
-            <p class="member-education">PhD, Northeastern University</p>
-            <p class="member-description">
-                <strong>Thesis:</strong> "Microbial Ecology and Genetic Mechanisms of Virulence and Pathogenicity in White Band Disease Infected Staghorn Corals"<br>
-                <strong>Currently:</strong> Management and Program Analyst, National Oceanic & Atmospheric Administration (2019 - present)
-            </p>
-        </div>
+  <!-- FORMER MASTERS & UNDERGRADS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Former Master's Students</h2>
 
-        <div class="team-member">
-            <h3 class="member-name">Dr. Charles Roesel (2013 - 2018)</h3>
-            <p class="member-education">PhD, Northeastern University</p>
-            <p class="member-description">
-                <strong>Thesis:</strong> "NGS Profiling of Invertebrate Immune Systems"<br>
-                <strong>Currently:</strong> Senior Application Scientist, Dotmatics
-            </p>
-        </div>
+      <p style="font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light); margin-bottom: 0.5rem; margin-top: 1.5rem;">MS in Marine Biology</p>
+      <p class="alumni-compact">
+        Gaylord Noblitt (2008–2009) · Carmel Norman (2008–2009) · Allison Kerwin (2009–2010) · Christopher Marks (2009–2010) · Steve Doo (2009–2010) · Courtney Rudd (2009–2010) · Jennifer Davidson (2012–2014) · Steven Heck (2012–2014) · Michelle Chen (2017–2018) · Colleen Shortal (2022–2023) · Allison Shupp (2024–2025)
+      </p>
 
-        <div class="team-member">
-            <h3 class="member-name">Dr. Stefan Kaluziak (2011 - 2020)</h3>
-            <p class="member-education">PhD, Northeastern University</p>
-            <p class="member-description">
-                <strong>Thesis:</strong> "A Genomics Perspective on the Evolution of Caribbean Acroporid Corals"<br>
-                <strong>Currently:</strong> Research Scientist, Massachusetts General Hospital (2020 – present)
-            </p>
-        </div>
-    </section>
+      <p style="font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light); margin-bottom: 0.5rem; margin-top: 2rem;">MS in Bioinformatics</p>
+      <p class="alumni-compact">
+        Melisa Brown (2015–2016) · Josh Bohannan (2015–2016) · Verena Chung (2015–2016) · Umesh Kathad (2015–2016) · Patrick Choi (2015–2017) · Dillon Hawley (2015–2017) · Himanshu Chintalapudi (2016–2017) · Paulmar Joseph (2015–2017) · Sia Charan Penikalapati (2016–2017) · Sherry Williford (2015–2017) · Sachin Lohar (2017–2019)
+      </p>
 
-    <!-- Former Master's Students -->
-    <section class="section">
-        <h2 class="section-title">Former Master's Students</h2>
-        
-        <p style="margin-bottom: 1rem; font-weight: 600; color: #333;">MS in Marine Biology</p>
-        <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
-            Gaylord Noblitt (2008-2009) • Carmel Norman (2008-2009) • Allison Kerwin (2009-2010) • Christopher Marks (2009-2010) • Steve Doo (2009-2010) • Courtney Rudd (2009-2010) • Jennifer Davidson (2012-2014) • Steven Heck (2012-2014) • Michelle Chen (2017-2018) • Colleen Shortal (2022-2023) • Allison Shupp (2024-2025)
-        </p>
-        
-        <p style="margin-bottom: 1rem; font-weight: 600; color: #333;">MS in Bioinformatics</p>
-        <p style="color: #666; line-height: 1.8;">
-            Melisa Brown (2015-2016) • Josh Bohannan (2015-2016) • Verena Chung (2015-2016) • Umesh Kathad (2015-2016) • Patrick Choi (2015-2017) • Dillon Hawley (2015-2017) • Himanshu Chintalapudi (2016-2017) • Paulmar Joseph (2015-2017) • Sia Charan Penikalapati (2016-2017) • Sherry Williford (2015-2017) • Sachin Lohar (2017-2019)
-        </p>
-    </section>
+      <h2 class="section-title" style="margin-top: 3.5rem;">Former Undergraduate Students</h2>
+      <p class="alumni-compact">
+        Amanda Ciardi (2007–2008) · Bailey Clear (2007–2008) · Christopher Camara (2008–2009) · Cathy Roney (2008–2009) · Kevin Greene (2009–2010, Matz Fellow) · Lisa Wolff (2009–2010) · Steven Munnelly (2010–2011) · Kara Wiggins (2012–2014) · Sam Csik (2013–2015) · Allison Shupp (2021–2022) · Miles Vollmer (2021–2022) · Caileigh Pierce (2022–2023) · Veronica Rajotte (2023, Barrett Fellow) · Anna Eaton (2023, Barrett Fellow) · Sonia Cho (2024, Barrett Fellow) · Zachary Anderson (2024, Barrett Fellow) · Natalie Dudko (2025, Barrett Fellow) · Maithili Ubgade (2025, Barrett Fellow)
+      </p>
+    </div>
+  </section>
 
-    <!-- Former Undergraduate Students -->
-    <section class="section">
-        <h2 class="section-title">Former Undergraduate Students</h2>
-        
-        <p style="color: #666; line-height: 1.8;">
-            Amanda Ciardi (2007-2008) • Bailey Clear (2007-2008) • Christopher Camara (2008-2009) • Cathy Roney (2008-2009) • Kevin Greene (2009-2010, Matz Fellow) • Lisa Wolff (2009-2010) • Steven Munnelly (2010-2011) • Kara Wiggins (2012-2014) • Sam Csik (2013-2015) • Allison Shupp (2021-2022) • Miles Vollmer (2021-2022) • Caileigh Pierce (2022-2023) • Veronica Rajotte (2023, Barrett Fellow) • Anna Eaton (2023, Barrett Fellow) • Sonia Cho (2024, Barrett Fellow) • Zachary Anderson (2024, Barrett Fellow) • Natalie Dudko (2025, Barrett Fellow) • Maithili Ubgade (2025, Barrett Fellow)
-        </p>
-    </section>
+  <footer class="site-footer">
+    <p>The Vollmer Lab · Florida Atlantic University · <a href="mailto:svollmer@fau.edu">svollmer@fau.edu</a></p>
+    <p style="margin-top: 0.3rem;">© 2025 The Vollmer Lab</p>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 70);
+    }, { passive: true });
+  </script>
+
 </body>
 </html>
